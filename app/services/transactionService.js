@@ -61,17 +61,17 @@ const UpdateService = async (req, res) => {
 };
 
 const DeleteService = async (req, res) => {
-  // try {
-  //   let dataToDelete = req.body;
-  //   const dataId = dataToDelete._id;
-  //   await TransactionModel.findByIdAndDelete(dataId);
-  //   res.send('Registro apagado com sucesso');
-  // } catch (err) {
-  //   console.log(err);
-  //   res.status(400).send({
-  //     erro: 'Erro ao tentar o DELETE: ' + err,
-  //   });
-  // }
+  try {
+    let dataToDelete = req.body;
+    const dataId = dataToDelete._id;
+    await TransactionModel.findByIdAndDelete(dataId);
+    res.send('Registro apagado com sucesso!');
+  } catch (err) {
+    console.log(err);
+    res.status(400).send({
+      erro: 'Erro ao tentar o DELETE: ' + err,
+    });
+  }
 };
 
 module.exports = { GetService, PostService, UpdateService, DeleteService };
